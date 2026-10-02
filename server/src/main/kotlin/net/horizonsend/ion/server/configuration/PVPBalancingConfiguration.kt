@@ -10,12 +10,13 @@ data class PVPBalancingConfiguration(
 	val energyWeapons: EnergyWeapons = EnergyWeapons(),
 	val meleeWeapons: MeleeWeapons = MeleeWeapons(),
 	val throwables: Throwables = Throwables(),
-	val consumables: Consumables = Consumables()
+	val consumables: Consumables = Consumables(),
+	val armour: Armor = Armor(),
 ) {
 	@Serializable
 	data class MeleeWeapons(
 		var energySwordBalancing: MeleeWeaponBalancing = MeleeWeaponBalancing(
-			damage = 7.25,
+			damage = 6.8,
 			speedUp = 0.0,
 			attackSpeed = -2.4,
 			knockback = 0.0,
@@ -80,8 +81,14 @@ data class PVPBalancingConfiguration(
 
 		),
 		val strengthStim: ConsumableBalancing = ConsumableBalancing(
-			timeBetweenConsumption = 480, // Every 20 ticks = 1 second cooldown till able to use again
+			timeBetweenConsumption = 400, // Every 20 ticks = 1 second cooldown till able to use again
 			potionEffectType = "minecraft:strength", // To change effects, just change the name of minecraft:potioneffect
+			potionEffectDuration = 200, // Every 20 ticks = 1 second of effects
+			potionEffectAmplifier = 0, // Starts at 0 (1) | amp 1 = effect strength of 2
+		),
+		val resistanceStim: ConsumableBalancing = ConsumableBalancing(
+			timeBetweenConsumption = 400, // Every 20 ticks = 1 second cooldown till able to use again
+			potionEffectType = "minecraft:resistance", // To change effects, just change the name of minecraft:potioneffect
 			potionEffectDuration = 300, // Every 20 ticks = 1 second of effects
 			potionEffectAmplifier = 0, // Starts at 0 (1) | amp 1 = effect strength of 2
 		),
@@ -94,11 +101,56 @@ data class PVPBalancingConfiguration(
 			var potionEffectAmplifier: Int,
 		)
 	}
+	@Serializable
+	data class Armor(
+		val mediumPowerArmor: ArmorBalancing = ArmorBalancing(
+			speed = 0.0,
+			sneakSpeed = 0.0,
+			scale = 0.0,
+			entityReach = 0.0,
+			blockReach = 0.0,
+			armor = 2.5,
+			toughness = 0.0,
+			knockBackResistance = 0.0,
+			power = 50000,
+			powerConsumedPerSecond = 4,
+			stepHeight = 0.0,
+			maxHealth = 0.0,
+			jumpStrength = 0.0,
+			flyingSpeed = 0.0,
+			gravity = 0.0,
+			oxygenBonus = 0.0,
+			waterMovementEfficiency = 0.0,
+			maxPrimaryModules = 1,
+		)
+	){
+		@Serializable
+		data class ArmorBalancing(
+			var speed: Double, //Percentage increase or decrease
+			var sneakSpeed: Double, //Percentage increase or decrease
+			var scale: Double, //Scalar add
+			var entityReach: Double, //Scalar add
+			var blockReach: Double, //Scalar add
+			var armor: Double, //Scalar add
+			var toughness: Double, //Scalar add
+			var knockBackResistance: Double, //Scalar add x10, 0.2 here is 2 ingame
+			var power: Int, //Pure number
+			var powerConsumedPerSecond: Int,
+			var stepHeight: Double,//Scalar add
+			var maxHealth: Double,//Scalar add
+			var jumpStrength: Double,//Scalar add
+			var flyingSpeed: Double,//Scalar add
+			var gravity: Double,//Scalar add
+			var oxygenBonus: Double,//Scalar add
+			var waterMovementEfficiency: Double,//Scalar add
+			var maxPrimaryModules: Int,
+		)
+	}
 
 	@Serializable
 	data class EnergyWeapons(
 		val pistol: Singleshot = Singleshot(
-			damage = 4.5,
+			damage = 4.2,
 			damageFalloffMultiplier = 0.0,
 			capacity = 10,
 			ammoPerRefill = 20,
@@ -158,7 +210,7 @@ data class PVPBalancingConfiguration(
 			refillType = "minecraft:emerald",
 		),
 		val rifle: Singleshot = Singleshot(
-			damage = 6.9,
+			damage = 7.9,
 			damageFalloffMultiplier = 0.0,
 			capacity = 20,
 			ammoPerRefill = 20,
@@ -188,7 +240,7 @@ data class PVPBalancingConfiguration(
 			refillType = "minecraft:lapis_lazuli",
 		),
 		val submachineBlaster: Singleshot = Singleshot(
-			damage = 2.25,
+			damage = 2.35,
 			damageFalloffMultiplier = 0.0,
 			capacity = 45,
 			ammoPerRefill = 20,
@@ -248,7 +300,7 @@ data class PVPBalancingConfiguration(
 			refillType = "minecraft:emerald",
 		),
 		val shotgun: Multishot = Multishot(
-			damage = 3.0,
+			damage = 2.8,
 			damageFalloffMultiplier = 0.25,
 			delay = 0,
 			capacity = 4,
@@ -282,23 +334,23 @@ data class PVPBalancingConfiguration(
 		),
 
 		val cannon: Singleshot = Singleshot(
-			damage = 0.2,
-			explosionPower = 4.0f,
+			damage = 0.15,
+			explosionPower = 4.25f,
 			damageFalloffMultiplier = 0.0,
 			capacity = 60,
 			ammoPerRefill = 20,
 			packetsPerShot = 1,
 			pitch = 1f,
-			range = 30.0,
+			range = 40.0,
 			recoil = 1.0f,
 			reload = 30,
-			shotSize = 0.25,
+			shotSize = 0.225,
 			shouldAkimbo = false,
 			shouldBypassHitTicks = true,
 			shouldHeadshot = false,
 			shouldPassThroughEntities = false,
-			speed = 4.0,
-			timeBetweenShots = 12,
+			speed = 4.5,
+			timeBetweenShots = 15,
 			shotDeviation = 0.07,
 			mobDamageMultiplier = 2.0,
 			consumesAmmo = true,

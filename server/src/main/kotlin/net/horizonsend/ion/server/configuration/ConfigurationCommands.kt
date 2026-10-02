@@ -36,6 +36,7 @@ object ConfigurationCommands : SLCommand() {
 	private val consumableTypes = PVPBalancingConfiguration.Consumables::class.memberProperties
 	private val blasterTypes = PVPBalancingConfiguration.EnergyWeapons::class.memberProperties
 	private val meleeTypes = PVPBalancingConfiguration.MeleeWeapons::class.memberProperties
+	private val armorTypes = PVPBalancingConfiguration.Armor::class.memberProperties
 
 	override fun onEnable(manager: PaperCommandManager) {
 		manager.commandCompletions.registerCompletion("starshipTypes") {
@@ -169,6 +170,31 @@ object ConfigurationCommands : SLCommand() {
 			sender,
 			meleeTypes,
 			ConfigurationFiles.pvpBalancing.get().meleeWeapons,
+			weaponName,
+			fieldName,
+			value
+		)
+	}
+
+	@Subcommand("config get armor")
+	@CommandCompletion("@armorTypes property value")
+	fun getArmorProperties(sender: CommandSender, weaponName: String, fieldName: String) = asyncCommand(sender) {
+		getConfigProperty(
+			sender,
+			armorTypes,
+			ConfigurationFiles.pvpBalancing.get().armour,
+			weaponName,
+			fieldName
+		)
+	}
+
+	@Subcommand("config set armor")
+	@CommandCompletion("@armorTypes property value")
+	fun setArmorProperties(sender: CommandSender, weaponName: String, fieldName: String, value: String) = asyncCommand(sender) {
+		setConfigProperty(
+			sender,
+			armorTypes,
+			ConfigurationFiles.pvpBalancing.get().armour,
 			weaponName,
 			fieldName,
 			value
