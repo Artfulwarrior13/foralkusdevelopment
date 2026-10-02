@@ -158,7 +158,7 @@ data class PVPBalancingConfiguration(
 			refillType = "minecraft:emerald",
 		),
 		val rifle: Singleshot = Singleshot(
-			damage = 9.5,
+			damage = 6.9,
 			damageFalloffMultiplier = 0.0,
 			capacity = 20,
 			ammoPerRefill = 20,
@@ -188,7 +188,7 @@ data class PVPBalancingConfiguration(
 			refillType = "minecraft:lapis_lazuli",
 		),
 		val submachineBlaster: Singleshot = Singleshot(
-			damage = 2.45,
+			damage = 2.25,
 			damageFalloffMultiplier = 0.0,
 			capacity = 45,
 			ammoPerRefill = 20,
@@ -219,7 +219,7 @@ data class PVPBalancingConfiguration(
 		),
 		val sniper: Singleshot = Singleshot(
 			damage = 25.0,
-			damageFalloffMultiplier = 29.0,
+			damageFalloffMultiplier = 30.0,
 			capacity = 5,
 			ammoPerRefill = 20,
 			packetsPerShot = 5,
@@ -248,7 +248,7 @@ data class PVPBalancingConfiguration(
 			refillType = "minecraft:emerald",
 		),
 		val shotgun: Multishot = Multishot(
-			damage = 3.25,
+			damage = 3.0,
 			damageFalloffMultiplier = 0.25,
 			delay = 0,
 			capacity = 4,

@@ -16,6 +16,7 @@ import net.horizonsend.ion.server.features.ai.spawning.AISpawningManager.schemat
 import net.horizonsend.ion.server.features.world.generation.generators.configuration.AsteroidConfigurations
 import net.horizonsend.ion.server.miscellaneous.utils.Tasks
 import org.bukkit.command.CommandSender
+import kotlin.io.path.Path
 import kotlin.reflect.KMutableProperty
 import kotlin.reflect.KProperty1
 import kotlin.reflect.full.createType
@@ -67,6 +68,10 @@ object ConfigurationCommands : SLCommand() {
 
 		manager.commandCompletions.registerCompletion("meleeTypes") {
 			meleeTypes.map { it.name }
+		}
+
+		manager.commandCompletions.registerCompletion("armorTypes") {
+			armorTypes.map { it.name }
 		}
 	}
 
