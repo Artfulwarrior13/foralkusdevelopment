@@ -78,7 +78,7 @@ data class PVPBalancingConfiguration(
 	@Serializable
 	data class Consumables(
 		val healthStim: ConsumableBalancing = ConsumableBalancing(
-			timeBetweenConsumption = 300, // Every 20 ticks = 1 second cooldown till able to use again
+			timeBetweenConsumption = 400, // Every 20 ticks = 1 second cooldown till able to use again
 			potionEffectType = "minecraft:instant_health", // To change effects, just change the name of minecraft:potioneffect
 			potionEffectDuration = 1, // For health stim, we don't want to change this
 			potionEffectAmplifier = 1, // Starts at 0 (1) | amp 1 = effect strength of 2
@@ -154,7 +154,7 @@ data class PVPBalancingConfiguration(
 	@Serializable
 	data class EnergyWeapons(
 		val pistol: Singleshot = Singleshot(
-			damage = 4.2,
+			damage = 4.5,
 			damageFalloffMultiplier = 0.0,
 			capacity = 10,
 			ammoPerRefill = 20,
@@ -214,7 +214,7 @@ data class PVPBalancingConfiguration(
 			refillType = "minecraft:emerald",
 		),
 		val rifle: Singleshot = Singleshot(
-			damage = 7.9,
+			damage = 9.0,
 			damageFalloffMultiplier = 0.0,
 			capacity = 20,
 			ammoPerRefill = 20,
@@ -304,7 +304,7 @@ data class PVPBalancingConfiguration(
 			refillType = "minecraft:emerald",
 		),
 		val shotgun: Multishot = Multishot(
-			damage = 2.8,
+			damage = 3.1,
 			damageFalloffMultiplier = 0.25,
 			delay = 0,
 			capacity = 4,
@@ -339,16 +339,16 @@ data class PVPBalancingConfiguration(
 
 		val cannon: Singleshot = Singleshot(
 			damage = 0.15,
-			explosionPower = 4.25f,
+			explosionPower = 4.15f,
 			damageFalloffMultiplier = 0.0,
 			capacity = 60,
 			ammoPerRefill = 20,
 			packetsPerShot = 1,
 			pitch = 1f,
-			range = 40.0,
+			range = 35.0,
 			recoil = 1.0f,
 			reload = 30,
-			shotSize = 0.225,
+			shotSize = 0.25,
 			shouldAkimbo = false,
 			shouldBypassHitTicks = true,
 			shouldHeadshot = false,
