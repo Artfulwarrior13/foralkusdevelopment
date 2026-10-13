@@ -22,7 +22,10 @@ import kotlin.reflect.KClass
 
 object SpeedBoostingMod : ItemModification {
 	override val key = ItemModKeys.SPEED_BOOSTING
-	override val applicationPredicates: Array<ApplicationPredicate> = arrayOf(ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_LEGGINGS))
+	override val applicationPredicates: Array<ApplicationPredicate> = arrayOf(
+		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_LEGGINGS),
+		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT)
+	)
 	override val incompatibleWithMods: Array<KClass<out ItemModification>> = arrayOf()
 	override val modItem: IonRegistryKey<CustomItem, out CustomItem> = CustomItemKeys.ARMOR_MODIFICATION_SPEED_BOOSTING
 	override val crouchingDisables: Boolean = false

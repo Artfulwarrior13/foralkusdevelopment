@@ -18,7 +18,10 @@ import kotlin.reflect.KClass
 
 object NightVisionMod : ItemModification {
 	override val key = ItemModKeys.NIGHT_VISION
-	override val applicationPredicates: Array<ApplicationPredicate> = arrayOf(ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_HELMET))
+	override val applicationPredicates: Array<ApplicationPredicate> = arrayOf(
+		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_HELMET),
+		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_HELMET_LIGHT)
+	)
 	override val incompatibleWithMods: Array<KClass<out ItemModification>> = arrayOf(EnvironmentMod::class, PressureFieldMod::class)
 	override val modItem: IonRegistryKey<CustomItem, out CustomItem> = CustomItemKeys.ARMOR_MODIFICATION_NIGHT_VISION
 	override val crouchingDisables: Boolean = false

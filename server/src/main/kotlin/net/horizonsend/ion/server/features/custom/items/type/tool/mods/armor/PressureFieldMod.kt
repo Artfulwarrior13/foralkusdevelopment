@@ -15,7 +15,10 @@ import kotlin.reflect.KClass
 
 object PressureFieldMod : ItemModification {
 	override val key = ItemModKeys.PRESSURE_FIELD
-	override val applicationPredicates: Array<ApplicationPredicate> = arrayOf(ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_HELMET))
+	override val applicationPredicates: Array<ApplicationPredicate> = arrayOf(
+		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_HELMET),
+		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_HELMET_LIGHT)
+	)
 	override val incompatibleWithMods: Array<KClass<out ItemModification>> = arrayOf(EnvironmentMod::class, EnvironmentMod::class)
 	override val modItem: IonRegistryKey<CustomItem, out CustomItem> = CustomItemKeys.ARMOR_MODIFICATION_PRESSURE_FIELD
 	override val crouchingDisables: Boolean = false

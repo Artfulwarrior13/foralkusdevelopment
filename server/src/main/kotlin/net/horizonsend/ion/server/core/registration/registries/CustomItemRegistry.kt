@@ -599,7 +599,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
                 ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Helmet", NamedTextColor.GRAY)),
                 "power_armor/power_armor_helmet",
                 EquipmentSlot.HEAD,
-				ConfigurationFiles.pvpBalancing().armour::mediumPowerArmor
+				ConfigurationFiles.pvpBalancing().armour::powerArmor
 			)
         )
 		register(
@@ -608,7 +608,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
                 ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Chestplate", NamedTextColor.GRAY)),
                 "power_armor/power_armor_chestplate",
                 EquipmentSlot.CHEST,
-				ConfigurationFiles.pvpBalancing().armour::mediumPowerArmor
+				ConfigurationFiles.pvpBalancing().armour::powerArmor
 			)
         )
 		register(
@@ -617,7 +617,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
                 ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Leggings", NamedTextColor.GRAY)),
                 "power_armor/power_armor_leggings",
                 EquipmentSlot.LEGS,
-				ConfigurationFiles.pvpBalancing().armour::mediumPowerArmor
+				ConfigurationFiles.pvpBalancing().armour::powerArmor
 			)
         )
 		register(
@@ -626,9 +626,45 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
                 ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Boots", NamedTextColor.GRAY)),
                 "power_armor/power_armor_boots",
                 EquipmentSlot.FEET,
-				ConfigurationFiles.pvpBalancing().armour::mediumPowerArmor
+				ConfigurationFiles.pvpBalancing().armour::powerArmor
             )
         )
+		register(
+			CustomItemKeys.POWER_ARMOR_HELMET_LIGHT, PowerArmorItem(
+				CustomItemKeys.POWER_ARMOR_HELMET_LIGHT,
+				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Helmet", NamedTextColor.GRAY)),
+				"power_armor/power_armor_helmet",
+				EquipmentSlot.HEAD,
+				ConfigurationFiles.pvpBalancing().armour::powerArmor
+			)
+		)
+		register(
+			CustomItemKeys.POWER_ARMOR_CHESTPLATE_LIGHT, PowerArmorItem(
+				CustomItemKeys.POWER_ARMOR_CHESTPLATE_LIGHT,
+				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Chestplate", NamedTextColor.GRAY)),
+				"power_armor/power_armor_chestplate",
+				EquipmentSlot.CHEST,
+				ConfigurationFiles.pvpBalancing().armour::powerArmor
+			)
+		)
+		register(
+			CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT, PowerArmorItem(
+				CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT,
+				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Leggings", NamedTextColor.GRAY)),
+				"power_armor/power_armor_leggings",
+				EquipmentSlot.LEGS,
+				ConfigurationFiles.pvpBalancing().armour::powerArmor
+			)
+		)
+		register(
+			CustomItemKeys.POWER_ARMOR_BOOTS_LIGHT, PowerArmorItem(
+				CustomItemKeys.POWER_ARMOR_BOOTS_LIGHT,
+				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Boots", NamedTextColor.GRAY)),
+				"power_armor/power_armor_boots",
+				EquipmentSlot.FEET,
+				ConfigurationFiles.pvpBalancing().armour::powerArmor
+			)
+		)
 	}
 
 	private fun registerEnergySwords() {

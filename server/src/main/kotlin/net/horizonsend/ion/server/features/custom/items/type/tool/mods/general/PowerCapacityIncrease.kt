@@ -38,6 +38,10 @@ class PowerCapacityIncrease(
 		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_CHESTPLATE),
 		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_LEGGINGS),
 		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_BOOTS),
+		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_HELMET_LIGHT),
+		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_CHESTPLATE_LIGHT),
+		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT),
+		ApplicationPredicate.SpecificPredicate(CustomItemKeys.POWER_ARMOR_BOOTS_LIGHT),
 	)
 	override val incompatibleWithMods: Array<KClass<out ItemModification>> = arrayOf()
 

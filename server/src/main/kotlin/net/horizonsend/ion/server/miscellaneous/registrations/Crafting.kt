@@ -81,6 +81,10 @@ import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_AR
 import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_ARMOR_CHESTPLATE
 import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_ARMOR_HELMET
 import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_ARMOR_LEGGINGS
+import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_ARMOR_BOOTS_LIGHT
+import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_ARMOR_CHESTPLATE_LIGHT
+import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_ARMOR_HELMET_LIGHT
+import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT
 import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_CHAINSAW_ADVANCED
 import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_CHAINSAW_BASIC
 import net.horizonsend.ion.server.core.registration.keys.CustomItemKeys.POWER_CHAINSAW_ENHANCED
@@ -948,11 +952,16 @@ object Crafting : IonServerComponent() {
 			shape(*shape)
 			setIngredient('*', TITANIUM_INGOT)
 			setIngredient('b', BATTERY_G)
+			setIngredient('a', ALUMINUM_INGOT)
 		}
 		registerArmorRecipe(POWER_ARMOR_HELMET, "*b*", "* *")
 		registerArmorRecipe(POWER_ARMOR_CHESTPLATE, "* *", "*b*", "***")
 		registerArmorRecipe(POWER_ARMOR_LEGGINGS, "*b*", "* *", "* *")
 		registerArmorRecipe(POWER_ARMOR_BOOTS, "* *", "*b*")
+		registerArmorRecipe(POWER_ARMOR_HELMET_LIGHT, "aba", "*b*")
+		registerArmorRecipe(POWER_ARMOR_CHESTPLATE_LIGHT, "* *", "aba","*a*")
+		registerArmorRecipe(POWER_ARMOR_LEGGINGS_LIGHT, "*b*", "a a", "a a")
+		registerArmorRecipe(POWER_ARMOR_BOOTS_LIGHT, "* *", "aba")
 
 		fun registerEmptyStim(result: IonRegistryKey<CustomItem, out CustomItem>, vararg shape: String) = shaped(result.key.lowercase(), result.getValue().constructItemStack(), CraftingBookCategory.EQUIPMENT) {
 			shape("iii", "aga", " i ")

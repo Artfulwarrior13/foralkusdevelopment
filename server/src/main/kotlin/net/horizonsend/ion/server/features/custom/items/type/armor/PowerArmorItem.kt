@@ -52,7 +52,7 @@ class PowerArmorItem(
 	displayName: Component,
 	itemModel: String,
 	val slot: EquipmentSlot,
-	val balancingsupplier: Supplier<PVPBalancingConfiguration.Armor.ArmorBalancing>
+	val balancingsupplier: Supplier<PVPBalancingConfiguration.Armor.PowerArmorBalancing>
 ) : CustomItem(
 	key,
 	displayName,
@@ -209,7 +209,7 @@ class PowerArmorItem(
 	}
 	companion object {
 		fun attributeList(
-			balancing: PVPBalancingConfiguration.Armor.ArmorBalancing,
+			balancing: PVPBalancingConfiguration.Armor.PowerArmorBalancing,
 			key: String,
 			slot: EquipmentSlot
 		) : MutableMap<Attribute, AttributeModifier> {

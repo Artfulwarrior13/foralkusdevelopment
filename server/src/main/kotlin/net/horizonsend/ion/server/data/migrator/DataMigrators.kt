@@ -302,6 +302,90 @@ object DataMigrators : IonServerComponent() {
 			))
 			.addMigrator(LegacyCustomItemMigrator(
 				predicate = {
+					it.type == Material.LEATHER_HELMET
+						&& it.itemMeta.hasCustomModelData()
+						&& it.itemMeta.customModelData == 1
+						&& it.customItem == null
+				},
+				converter = { old ->
+					@Suppress("DEPRECATION")
+					val oldMods = old.lore
+						?.filter { it.startsWith("Module: ") }
+						?.mapNotNull { LegacyPowerArmorModule[it.split(" ")[1]]?.modern }
+						?.toSet()
+						?: setOf()
+
+					val new = CustomItemKeys.POWER_ARMOR_HELMET_LIGHT.getValue().constructItemStack()
+					CustomItemKeys.POWER_ARMOR_HELMET_LIGHT.getValue().getComponent(MOD_MANAGER).setMods(new, CustomItemKeys.POWER_ARMOR_HELMET_LIGHT.getValue(), oldMods.toTypedArray())
+					old.getData(DataComponentTypes.DYED_COLOR)?.let { color -> new.setData(DataComponentTypes.DYED_COLOR, color) }
+					MigratorResult.Replacement(new)
+				}
+			))
+			.addMigrator(LegacyCustomItemMigrator(
+				predicate = {
+					it.type == Material.LEATHER_CHESTPLATE
+						&& it.itemMeta.hasCustomModelData()
+						&& it.itemMeta.customModelData == 1
+						&& it.customItem == null
+				},
+				converter = { old ->
+					@Suppress("DEPRECATION")
+					val oldMods = old.lore
+						?.filter { it.startsWith("Module: ") }
+						?.mapNotNull { LegacyPowerArmorModule[it.split(" ")[1]]?.modern }
+						?.toSet()
+						?: setOf()
+
+					val new = CustomItemKeys.POWER_ARMOR_CHESTPLATE_LIGHT.getValue().constructItemStack()
+					CustomItemKeys.POWER_ARMOR_CHESTPLATE_LIGHT.getValue().getComponent(MOD_MANAGER).setMods(new, CustomItemKeys.POWER_ARMOR_CHESTPLATE_LIGHT.getValue(), oldMods.toTypedArray())
+					old.getData(DataComponentTypes.DYED_COLOR)?.let { color -> new.setData(DataComponentTypes.DYED_COLOR, color) }
+					MigratorResult.Replacement(new)
+				}
+			))
+			.addMigrator(LegacyCustomItemMigrator(
+				predicate = {
+					it.type == Material.LEATHER_LEGGINGS
+						&& it.itemMeta.hasCustomModelData()
+						&& it.itemMeta.customModelData == 1
+						&& it.customItem == null
+				},
+				converter = { old ->
+					@Suppress("DEPRECATION")
+					val oldMods = old.lore
+						?.filter { it.startsWith("Module: ") }
+						?.mapNotNull { LegacyPowerArmorModule[it.split(" ")[1]]?.modern }
+						?.toSet()
+						?: setOf()
+
+					val new = CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT.getValue().constructItemStack()
+					CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT.getValue().getComponent(MOD_MANAGER).setMods(new, CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT.getValue(), oldMods.toTypedArray())
+					old.getData(DataComponentTypes.DYED_COLOR)?.let { color -> new.setData(DataComponentTypes.DYED_COLOR, color) }
+					MigratorResult.Replacement(new)
+				}
+			))
+			.addMigrator(LegacyCustomItemMigrator(
+				predicate = {
+					it.type == Material.LEATHER_BOOTS
+						&& it.itemMeta.hasCustomModelData()
+						&& it.itemMeta.customModelData == 1
+						&& it.customItem == null
+				},
+				converter = { old ->
+					@Suppress("DEPRECATION")
+					val oldMods = old.lore
+						?.filter { it.startsWith("Module: ") }
+						?.mapNotNull { LegacyPowerArmorModule[it.split(" ")[1]]?.modern }
+						?.toSet()
+						?: setOf()
+
+					val new = CustomItemKeys.POWER_ARMOR_BOOTS_LIGHT.getValue().constructItemStack()
+					CustomItemKeys.POWER_ARMOR_BOOTS_LIGHT.getValue().getComponent(MOD_MANAGER).setMods(new, CustomItemKeys.POWER_ARMOR_BOOTS_LIGHT.getValue(), oldMods.toTypedArray())
+					old.getData(DataComponentTypes.DYED_COLOR)?.let { color -> new.setData(DataComponentTypes.DYED_COLOR, color) }
+					MigratorResult.Replacement(new)
+				}
+			))
+			.addMigrator(LegacyCustomItemMigrator(
+				predicate = {
 					(it.type == Material.FLINT_AND_STEEL)
 						&& (it.itemMeta.hasCustomModelData())
 						&& (it.itemMeta.customModelData == 1)
@@ -916,6 +1000,82 @@ object DataMigrators : IonServerComponent() {
 								2.5,
 								AttributeModifier.Operation.ADD_NUMBER,
 								CustomItemKeys.POWER_ARMOR_HELMET.getValue().slot.group
+							)
+						)
+						.build()
+					)
+				}
+				.build()
+			)
+			.addMigrator(AspectMigrator
+				.builder(CustomItemKeys.POWER_ARMOR_BOOTS_LIGHT)
+				.addConsumer {
+					it.setData(DataComponentTypes.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers
+						.itemAttributes()
+						.addModifier(
+							Attribute.ARMOR,
+							AttributeModifier(
+								NamespacedKeys.key(CustomItemKeys.POWER_ARMOR_BOOTS_LIGHT.key),
+								2.5,
+								AttributeModifier.Operation.ADD_NUMBER,
+								CustomItemKeys.POWER_ARMOR_BOOTS_LIGHT.getValue().slot.group
+							)
+						)
+						.build()
+					)
+				}
+				.build()
+			)
+			.addMigrator(AspectMigrator
+				.builder(CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT)
+				.addConsumer {
+					it.setData(DataComponentTypes.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers
+						.itemAttributes()
+						.addModifier(
+							Attribute.ARMOR,
+							AttributeModifier(
+								NamespacedKeys.key(CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT.key),
+								2.5,
+								AttributeModifier.Operation.ADD_NUMBER,
+								CustomItemKeys.POWER_ARMOR_LEGGINGS_LIGHT.getValue().slot.group
+							)
+						)
+						.build()
+					)
+				}
+				.build()
+			)
+			.addMigrator(AspectMigrator
+				.builder(CustomItemKeys.POWER_ARMOR_CHESTPLATE_LIGHT)
+				.addConsumer {
+					it.setData(DataComponentTypes.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers
+						.itemAttributes()
+						.addModifier(
+							Attribute.ARMOR,
+							AttributeModifier(
+								NamespacedKeys.key(CustomItemKeys.POWER_ARMOR_CHESTPLATE_LIGHT.key),
+								2.5,
+								AttributeModifier.Operation.ADD_NUMBER,
+								CustomItemKeys.POWER_ARMOR_CHESTPLATE_LIGHT.getValue().slot.group
+							)
+						)
+						.build()
+					)
+				}
+				.build()
+			)
+			.addMigrator(AspectMigrator
+				.builder(CustomItemKeys.POWER_ARMOR_HELMET_LIGHT)
+				.addConsumer {
+					it.setData(DataComponentTypes.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers
+						.itemAttributes()
+						.addModifier(
+							Attribute.ARMOR,
+							AttributeModifier(
+								NamespacedKeys.key(CustomItemKeys.POWER_ARMOR_HELMET_LIGHT.key),
+								2.5,
+								AttributeModifier.Operation.ADD_NUMBER,
+								CustomItemKeys.POWER_ARMOR_HELMET_LIGHT.getValue().slot.group
 							)
 						)
 						.build()
