@@ -505,7 +505,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
 		register(
             CustomItemKeys.POWER_DRILL_BASIC, PowerDrill(
                 key = CustomItemKeys.POWER_DRILL_BASIC,
-                displayName = formatToolName("Basic", HEColorScheme.Companion.HE_LIGHT_ORANGE, "Drill"),
+                displayName = formatToolName("Basic", HEColorScheme.HE_LIGHT_ORANGE, "Drill"),
                 modLimit = 2,
                 basePowerCapacity = 50_000,
                 model = "tool/power_drill_basic"
@@ -535,7 +535,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
 		register(
             CustomItemKeys.POWER_CHAINSAW_BASIC, PowerChainsaw(
                 key = CustomItemKeys.POWER_CHAINSAW_BASIC,
-                displayName = formatToolName("Basic", HEColorScheme.Companion.HE_LIGHT_ORANGE, "Chainsaw"),
+                displayName = formatToolName("Basic", HEColorScheme.HE_LIGHT_ORANGE, "Chainsaw"),
                 modLimit = 2,
                 basePowerCapacity = 50_000,
                 model = "tool/power_chainsaw_basic",
@@ -566,7 +566,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
 		register(
             CustomItemKeys.POWER_HOE_BASIC, PowerHoe(
                 key = CustomItemKeys.POWER_HOE_BASIC,
-                displayName = formatToolName("Basic", HEColorScheme.Companion.HE_LIGHT_ORANGE, "Hoe"),
+                displayName = formatToolName("Basic", HEColorScheme.HE_LIGHT_ORANGE, "Hoe"),
                 modLimit = 2,
                 basePowerCapacity = 50_000,
                 model = "tool/power_hoe_basic"
@@ -593,6 +593,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
 
 		register(CustomItemKeys.PERSONAL_TRANSPORTER, PersonalTransporter)
 
+		//Medium power armor
 		register(
             CustomItemKeys.POWER_ARMOR_HELMET, PowerArmorItem(
                 CustomItemKeys.POWER_ARMOR_HELMET,
@@ -629,13 +630,14 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
 				ConfigurationFiles.pvpBalancing().armour::powerArmor
             )
         )
+		// Light Power Armor
 		register(
 			CustomItemKeys.POWER_ARMOR_HELMET_LIGHT, PowerArmorItem(
 				CustomItemKeys.POWER_ARMOR_HELMET_LIGHT,
 				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Helmet", NamedTextColor.GRAY)),
 				"power_armor/power_armor_helmet",
 				EquipmentSlot.HEAD,
-				ConfigurationFiles.pvpBalancing().armour::powerArmor
+				ConfigurationFiles.pvpBalancing().armour::lightPowerArmor
 			)
 		)
 		register(
@@ -644,7 +646,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
 				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Chestplate", NamedTextColor.GRAY)),
 				"power_armor/power_armor_chestplate",
 				EquipmentSlot.CHEST,
-				ConfigurationFiles.pvpBalancing().armour::powerArmor
+				ConfigurationFiles.pvpBalancing().armour::lightPowerArmor
 			)
 		)
 		register(
@@ -653,7 +655,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
 				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Leggings", NamedTextColor.GRAY)),
 				"power_armor/power_armor_leggings",
 				EquipmentSlot.LEGS,
-				ConfigurationFiles.pvpBalancing().armour::powerArmor
+				ConfigurationFiles.pvpBalancing().armour::lightPowerArmor
 			)
 		)
 		register(
@@ -662,7 +664,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
 				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Boots", NamedTextColor.GRAY)),
 				"power_armor/power_armor_boots",
 				EquipmentSlot.FEET,
-				ConfigurationFiles.pvpBalancing().armour::powerArmor
+				ConfigurationFiles.pvpBalancing().armour::lightPowerArmor
 			)
 		)
 	}
