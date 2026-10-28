@@ -24,6 +24,7 @@ import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.heavy
 import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.heavy.checklist.BattleCruiserReactorMultiblock
 import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.heavy.checklist.CruiserReactorMultiblock
 import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.heavy.checklist.FauxReactorMultiblock
+import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.heavy.checklist.MiniFauxReactorMultiblock
 import net.horizonsend.ion.server.features.multiblock.type.starship.gravitywell.DisruptorMultiblock
 import net.horizonsend.ion.server.features.multiblock.type.starship.gravitywell.GravityWellMultiblock
 import net.horizonsend.ion.server.features.multiblock.type.starship.hyperdrive.HyperdriveMultiblock
@@ -33,7 +34,6 @@ import net.horizonsend.ion.server.features.multiblock.type.starship.navigationco
 import net.horizonsend.ion.server.features.multiblock.type.starship.navigationcomputer.NavigationComputerMultiblock
 import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.SignlessStarshipWeaponMultiblock
 import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.heavy.AbstractCommandBurstMultiblock
-import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.heavy.ShieldCommandBurstMultiblock
 import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.heavy.checklist.LargeReactorMultiblock
 import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.heavy.checklist.MediumReactorMultiblock
 import net.horizonsend.ion.server.features.multiblock.type.starship.weapon.heavy.checklist.MiniReactorMultiblock
@@ -45,12 +45,12 @@ import net.horizonsend.ion.server.features.starship.subsystem.checklist.BargeRea
 import net.horizonsend.ion.server.features.starship.subsystem.checklist.BattlecruiserReactorSubsystem
 import net.horizonsend.ion.server.features.starship.subsystem.checklist.CruiserReactorSubsystem
 import net.horizonsend.ion.server.features.starship.subsystem.checklist.FauxReactorSubsystem
+import net.horizonsend.ion.server.features.starship.subsystem.checklist.MiniatureFauxReactorSubsystem
 import net.horizonsend.ion.server.features.starship.subsystem.checklist.FuelTankSubsystem
 import net.horizonsend.ion.server.features.starship.subsystem.checklist.LargeReactorSubsystem
 import net.horizonsend.ion.server.features.starship.subsystem.checklist.MediumReactorSubsystem
 import net.horizonsend.ion.server.features.starship.subsystem.checklist.MiniReactorSubsystem
 import net.horizonsend.ion.server.features.starship.subsystem.checklist.SmallReactorSubsystem
-import net.horizonsend.ion.server.features.starship.subsystem.command_burst.ShieldCommandBurstSubsystem
 import net.horizonsend.ion.server.features.starship.subsystem.misc.CryopodSubsystem
 import net.horizonsend.ion.server.features.starship.subsystem.misc.DisruptorSubsystem
 import net.horizonsend.ion.server.features.starship.subsystem.misc.GravityWellSubsystem
@@ -80,8 +80,6 @@ import net.horizonsend.ion.server.miscellaneous.utils.isFroglight
 import net.horizonsend.ion.server.miscellaneous.utils.isSign
 import net.horizonsend.ion.server.miscellaneous.utils.isWallSign
 import net.kyori.adventure.audience.Audience
-import net.kyori.adventure.text.Component.text
-import net.kyori.adventure.text.format.NamedTextColor.DARK_AQUA
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.block.BlockFace
@@ -267,6 +265,10 @@ object SubsystemDetector {
 
 			is FauxReactorMultiblock -> {
 				starship.subsystems += FauxReactorSubsystem(starship, sign, multiblock)
+			}
+
+			is MiniFauxReactorMultiblock -> {
+				starship.subsystems += MiniatureFauxReactorSubsystem(starship, sign, multiblock)
 			}
 
 			is FuelTankMultiblock -> {

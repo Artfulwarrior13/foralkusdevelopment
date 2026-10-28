@@ -192,3 +192,47 @@ abstract class AbstractReactorCore(val core: MultiblockShape.RequirementBuilder.
 		}
 	}
 }
+abstract class AbstractMiniReactorCore(val core: MultiblockShape.RequirementBuilder.() -> Unit) : Multiblock(), DisplayNameMultilblock {
+	override fun matchesUndetectedSign(sign: Sign): Boolean {
+		return super.matchesUndetectedSign(sign) || sign.getSide(Side.FRONT).line(0).plainText().equals("[reactor]", ignoreCase = true)
+	}
+
+	override fun MultiblockShape.buildStructure() {
+		z(2) {
+			y(0) {
+				x(1).ironBlock()
+				x(0).sponge()
+				x(-1).ironBlock()
+			}
+			y(1) {
+				x(1).ironBlock()
+				x(0).sponge()
+				x(-1).ironBlock()
+			}
+		}
+		z(1) {
+			y(0) {
+				x(1).titaniumBlock()
+				x(0).sponge()
+				x(-1).titaniumBlock()
+			}
+			y(1) {
+				x(1).anyGlass()
+				x(0).core()
+				x(-1).anyGlass()
+			}
+		}
+		z(0) {
+			y(0) {
+				x(1).anyStairs()
+				x(0).redstoneBlock()
+				x(-1).anyStairs()
+			}
+			y(1) {
+				x(1).anyStairs()
+				x(0).anyGlass()
+				x(-1).anyStairs()
+			}
+		}
+	}
+}

@@ -5,7 +5,7 @@ import net.horizonsend.ion.server.features.multiblock.shape.MultiblockShape
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.Component.text
 
-object MiniReactorMultiblock : AbstractReactorCore({ customBlock(CustomBlockKeys.MINI_REACTOR_CORE.getValue()) }) {
+object MiniReactorMultiblock : AbstractMiniReactorCore({ customBlock(CustomBlockKeys.MINI_REACTOR_CORE.getValue()) }) {
 	override val displayName: Component get() = text("Mini Reactor")
 	override val description: Component get() = text("Reactor core critical to tech 2 Fighter and Gunship functionality.")
 

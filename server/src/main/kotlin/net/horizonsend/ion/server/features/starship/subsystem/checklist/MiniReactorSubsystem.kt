@@ -9,6 +9,6 @@ import net.horizonsend.ion.server.features.starship.active.ActiveStarship
 import org.bukkit.block.Sign
 
 class MiniReactorSubsystem(starship: ActiveStarship, sign: Sign, multiblock: MiniReactorMultiblock) :
-	SupercapitalReactorSubsystem<MiniReactorMultiblock>(starship, sign, multiblock) {
+	SubcapitalReactorSubsystem<MiniReactorMultiblock>(starship, sign, multiblock) {
 	override val fuelKey: IonRegistryKey<CustomItem, GasCanister> = CustomItemKeys.GAS_CANISTER_NITROGEN
 }
