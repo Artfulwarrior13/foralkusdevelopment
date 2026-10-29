@@ -220,6 +220,10 @@ object CustomItemKeys : KeyRegistry<CustomItem>(RegistryKeys.CUSTOM_ITEMS, Custo
 	val POWER_ARMOR_CHESTPLATE_LIGHT = registerTypedKey<PowerArmorItem>("POWER_ARMOR_CHESTPLATE_LIGHT")
 	val POWER_ARMOR_LEGGINGS_LIGHT = registerTypedKey<PowerArmorItem>("POWER_ARMOR_LEGGINGS_LIGHT")
 	val POWER_ARMOR_BOOTS_LIGHT = registerTypedKey<PowerArmorItem>("POWER_ARMOR_BOOTS_LIGHT")
+	val POWER_ARMOR_HELMET_HEAVY = registerTypedKey<PowerArmorItem>("POWER_ARMOR_HELMET_HEAVY")
+	val POWER_ARMOR_CHESTPLATE_HEAVY = registerTypedKey<PowerArmorItem>("POWER_ARMOR_CHESTPLATE_HEAVY")
+	val POWER_ARMOR_LEGGINGS_HEAVY = registerTypedKey<PowerArmorItem>("POWER_ARMOR_LEGGINGS_HEAVY")
+	val POWER_ARMOR_BOOTS_HEAVY = registerTypedKey<PowerArmorItem>("POWER_ARMOR_BOOTS_HEAVY")
 
 	val ENERGY_SWORD_BLUE = registerTypedKey<EnergySword>("ENERGY_SWORD_BLUE")
 	val ENERGY_SWORD_RED = registerTypedKey<EnergySword>("ENERGY_SWORD_RED")

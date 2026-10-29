@@ -1,5 +1,6 @@
 ﻿package net.horizonsend.ion.server.core.registration.registries
 
+//import net.horizonsend.ion.server.features.custom.items.type.NationBuffCustomItem
 import net.horizonsend.ion.common.utils.text.ITALIC
 import net.horizonsend.ion.common.utils.text.colors.HEColorScheme
 import net.horizonsend.ion.common.utils.text.ofChildren
@@ -23,7 +24,6 @@ import net.horizonsend.ion.server.features.custom.items.misc.PackagedMultiblock
 import net.horizonsend.ion.server.features.custom.items.misc.Wrench
 import net.horizonsend.ion.server.features.custom.items.type.CustomBlockItem
 import net.horizonsend.ion.server.features.custom.items.type.GasCanister
-//import net.horizonsend.ion.server.features.custom.items.type.NationBuffCustomItem
 import net.horizonsend.ion.server.features.custom.items.type.PersonalTransporter
 import net.horizonsend.ion.server.features.custom.items.type.ProgressHolder
 import net.horizonsend.ion.server.features.custom.items.type.armor.PowerArmorItem
@@ -600,7 +600,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
                 ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Helmet", NamedTextColor.GRAY)),
                 "power_armor/power_armor_helmet",
                 EquipmentSlot.HEAD,
-				ConfigurationFiles.pvpBalancing().armour::powerArmor
+				ConfigurationFiles.pvpBalancing().armour::mediumPowerArmor
 			)
         )
 		register(
@@ -609,7 +609,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
                 ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Chestplate", NamedTextColor.GRAY)),
                 "power_armor/power_armor_chestplate",
                 EquipmentSlot.CHEST,
-				ConfigurationFiles.pvpBalancing().armour::powerArmor
+				ConfigurationFiles.pvpBalancing().armour::mediumPowerArmor
 			)
         )
 		register(
@@ -618,7 +618,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
                 ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Leggings", NamedTextColor.GRAY)),
                 "power_armor/power_armor_leggings",
                 EquipmentSlot.LEGS,
-				ConfigurationFiles.pvpBalancing().armour::powerArmor
+				ConfigurationFiles.pvpBalancing().armour::mediumPowerArmor
 			)
         )
 		register(
@@ -627,7 +627,7 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
                 ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Boots", NamedTextColor.GRAY)),
                 "power_armor/power_armor_boots",
                 EquipmentSlot.FEET,
-				ConfigurationFiles.pvpBalancing().armour::powerArmor
+				ConfigurationFiles.pvpBalancing().armour::mediumPowerArmor
             )
         )
 		// Light Power Armor
@@ -665,6 +665,43 @@ class CustomItemRegistry : Registry<CustomItem>(RegistryKeys.CUSTOM_ITEMS) {
 				"power_armor/power_armor_boots",
 				EquipmentSlot.FEET,
 				ConfigurationFiles.pvpBalancing().armour::lightPowerArmor
+			)
+		)
+		// Heavy Power Armor
+		register(
+			CustomItemKeys.POWER_ARMOR_HELMET_HEAVY, PowerArmorItem(
+				CustomItemKeys.POWER_ARMOR_HELMET_HEAVY,
+				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Helmet", NamedTextColor.GRAY)),
+				"power_armor/power_armor_helmet",
+				EquipmentSlot.HEAD,
+				ConfigurationFiles.pvpBalancing().armour::heavyPowerArmor
+			)
+		)
+		register(
+			CustomItemKeys.POWER_ARMOR_CHESTPLATE_HEAVY, PowerArmorItem(
+				CustomItemKeys.POWER_ARMOR_CHESTPLATE_HEAVY,
+				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Chestplate", NamedTextColor.GRAY)),
+				"power_armor/power_armor_chestplate",
+				EquipmentSlot.CHEST,
+				ConfigurationFiles.pvpBalancing().armour::heavyPowerArmor
+			)
+		)
+		register(
+			CustomItemKeys.POWER_ARMOR_LEGGINGS_HEAVY, PowerArmorItem(
+				CustomItemKeys.POWER_ARMOR_LEGGINGS_HEAVY,
+				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Leggings", NamedTextColor.GRAY)),
+				"power_armor/power_armor_leggings",
+				EquipmentSlot.LEGS,
+				ConfigurationFiles.pvpBalancing().armour::heavyPowerArmor
+			)
+		)
+		register(
+			CustomItemKeys.POWER_ARMOR_BOOTS_HEAVY, PowerArmorItem(
+				CustomItemKeys.POWER_ARMOR_BOOTS_HEAVY,
+				ofChildren(Component.text("Power ", NamedTextColor.GOLD), Component.text("Boots", NamedTextColor.GRAY)),
+				"power_armor/power_armor_boots",
+				EquipmentSlot.FEET,
+				ConfigurationFiles.pvpBalancing().armour::heavyPowerArmor
 			)
 		)
 	}

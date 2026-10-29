@@ -107,13 +107,13 @@ data class PVPBalancingConfiguration(
 	}
 	@Serializable
 	data class Armor(
-		val powerArmor: PowerArmorBalancing = PowerArmorBalancing(
+		val mediumPowerArmor: PowerArmorBalancing = PowerArmorBalancing(
 			speed = 0.0,
 			sneakSpeed = 0.0,
 			scale = 0.0,
 			entityReach = 0.0,
 			blockReach = 0.0,
-			armor = 2.5,
+			armor = 3.0,
 			toughness = 0.0,
 			knockBackResistance = 0.0,
 			power = 50000,
@@ -129,18 +129,18 @@ data class PVPBalancingConfiguration(
 			maxSecondaryModules = 0,
 		),
 		val lightPowerArmor: PowerArmorBalancing = PowerArmorBalancing(
-			speed = 2.5,
-			sneakSpeed = 1.25,
+			speed = 0.1,
+			sneakSpeed = 0.5,
 			scale = 0.0,
 			entityReach = 0.0,
 			blockReach = 0.0,
 			armor = 2.0,
-			toughness = 0.5,
+			toughness = 0.0,
 			knockBackResistance = 0.0,
 			power = 32500,
 			powerConsumedPerSecond = 2,
-			stepHeight = 0.0,
-			maxHealth = 0.5,
+			stepHeight = 1.0,
+			maxHealth = 0.0,
 			jumpStrength = 0.0,
 			flyingSpeed = 0.0,
 			gravity = 0.0,
@@ -148,6 +148,27 @@ data class PVPBalancingConfiguration(
 			waterMovementEfficiency = 0.0,
 			maxPrimaryModules = 1,
 			maxSecondaryModules = 1,
+		),
+		val heavyPowerArmor : PowerArmorBalancing = PowerArmorBalancing(
+			speed = -0.5,
+			sneakSpeed = 0.0,
+			scale = 0.0,
+			entityReach = 0.0,
+			blockReach = 0.0,
+			armor = 4.5,
+			toughness = 0.75,
+			knockBackResistance = 1.0,
+			power = 65000,
+			powerConsumedPerSecond = 5,
+			stepHeight = 0.0,
+			maxHealth = 1.0,
+			jumpStrength = 0.0,
+			flyingSpeed = 0.0,
+			gravity = 0.0,
+			oxygenBonus = 0.0,
+			waterMovementEfficiency = -0.125,
+			maxPrimaryModules = 1,
+			maxSecondaryModules = 2,
 		)
 	){
 		@Serializable
