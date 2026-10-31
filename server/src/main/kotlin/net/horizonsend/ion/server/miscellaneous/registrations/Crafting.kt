@@ -948,20 +948,26 @@ object Crafting : IonServerComponent() {
 		registerBatteryRecipe(BATTERY_M, REDSTONE)
 		registerBatteryRecipe(BATTERY_G, SEA_LANTERN)
 
-		fun registerArmorRecipe(result: IonRegistryKey<CustomItem, out CustomItem>, vararg shape: String) = shaped(result.key.lowercase(), result.getValue().constructItemStack(), CraftingBookCategory.EQUIPMENT) {
+		fun registerMediumArmorRecipe(result: IonRegistryKey<CustomItem, out CustomItem>, vararg shape: String) = shaped(result.key.lowercase(), result.getValue().constructItemStack(), CraftingBookCategory.EQUIPMENT) {
+			shape(*shape)
+			setIngredient('*', TITANIUM_INGOT)
+			setIngredient('b', BATTERY_G)
+		}
+		registerMediumArmorRecipe(POWER_ARMOR_HELMET, "*b*", "* *")
+		registerMediumArmorRecipe(POWER_ARMOR_CHESTPLATE, "* *", "*b*", "***")
+		registerMediumArmorRecipe(POWER_ARMOR_LEGGINGS, "*b*", "* *", "* *")
+		registerMediumArmorRecipe(POWER_ARMOR_BOOTS, "* *", "*b*")
+
+		fun registerLightArmorRecipe(result: IonRegistryKey<CustomItem, out CustomItem>, vararg shape: String) = shaped(result.key.lowercase(), result.getValue().constructItemStack(), CraftingBookCategory.EQUIPMENT) {
 			shape(*shape)
 			setIngredient('*', TITANIUM_INGOT)
 			setIngredient('b', BATTERY_G)
 			setIngredient('a', ALUMINUM_INGOT)
 		}
-		registerArmorRecipe(POWER_ARMOR_HELMET, "*b*", "* *")
-		registerArmorRecipe(POWER_ARMOR_CHESTPLATE, "* *", "*b*", "***")
-		registerArmorRecipe(POWER_ARMOR_LEGGINGS, "*b*", "* *", "* *")
-		registerArmorRecipe(POWER_ARMOR_BOOTS, "* *", "*b*")
-		registerArmorRecipe(POWER_ARMOR_HELMET_LIGHT, "aba", "*b*")
-		registerArmorRecipe(POWER_ARMOR_CHESTPLATE_LIGHT, "* *", "aba","*a*")
-		registerArmorRecipe(POWER_ARMOR_LEGGINGS_LIGHT, "*b*", "a a", "a a")
-		registerArmorRecipe(POWER_ARMOR_BOOTS_LIGHT, "* *", "aba")
+		registerLightArmorRecipe(POWER_ARMOR_HELMET_LIGHT, "aba", "*b*")
+		registerLightArmorRecipe(POWER_ARMOR_CHESTPLATE_LIGHT, "* *", "aba","*a*")
+		registerLightArmorRecipe(POWER_ARMOR_LEGGINGS_LIGHT, "*b*", "a a", "a a")
+		registerLightArmorRecipe(POWER_ARMOR_BOOTS_LIGHT, "* *", "aba")
 
 		fun registerEmptyStim(result: IonRegistryKey<CustomItem, out CustomItem>, vararg shape: String) = shaped(result.key.lowercase(), result.getValue().constructItemStack(), CraftingBookCategory.EQUIPMENT) {
 			shape("iii", "aga", " i ")
