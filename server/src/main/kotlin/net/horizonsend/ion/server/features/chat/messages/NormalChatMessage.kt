@@ -17,4 +17,4 @@ class NormalChatMessage(
 	override val color: TextColor,
 
 	val sender: SLPlayerId
-) : ChatMessage(senderLevel, channel.name)
+) : ChatMessage(senderLevel, channel.name, sender)

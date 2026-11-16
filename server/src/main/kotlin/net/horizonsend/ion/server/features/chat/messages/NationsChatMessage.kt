@@ -2,6 +2,7 @@ package net.horizonsend.ion.server.features.chat.messages
 
 import net.horizonsend.ion.common.database.DbObject
 import net.horizonsend.ion.common.database.Oid
+import net.horizonsend.ion.common.database.schema.misc.SLPlayerId
 import net.horizonsend.ion.common.utils.text.bracketed
 import net.horizonsend.ion.common.utils.text.colors.HEColorScheme
 import net.horizonsend.ion.common.utils.text.orEmpty
@@ -15,6 +16,7 @@ import net.kyori.adventure.text.format.TextColor
 class NationsChatMessage<A : DbObject>(
 	senderLevel: Int,
 	channel: ChatChannel,
+	senderId: SLPlayerId,
 
 	/** Settlement, or nation ID */
 	val nationsid: Oid<A>,
@@ -31,8 +33,8 @@ class NationsChatMessage<A : DbObject>(
 	override val message: Component,
 	override val playerInfo: Component,
 
-	override val color: TextColor
-) : ChatMessage(senderLevel, channel.name) {
+	override val color: TextColor,
+) : ChatMessage(senderLevel, channel.name, senderId) {
 
 	fun buildChatComponent(
 		useLevelsPrefix: Boolean,
@@ -64,7 +66,7 @@ class NationsChatMessage<A : DbObject>(
 		if (showLuckPermsPrefix) luckPermsPrefix?.let { builder.append(it, space()) }
 		builder.append(playerDisplayName)
 		builder.append(luckPermsSuffix.orEmpty())
-		builder.append(text(" » ", HEColorScheme.HE_DARK_GRAY))
+		builder.append(text(" Â» ", HEColorScheme.HE_DARK_GRAY))
 		builder.append(message.color(color))
 
 		return builder.build()

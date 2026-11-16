@@ -1,5 +1,6 @@
 package net.horizonsend.ion.server.features.chat.messages
 
+import net.horizonsend.ion.common.database.schema.misc.SLPlayerId
 import net.horizonsend.ion.common.utils.text.bracketed
 import net.horizonsend.ion.common.utils.text.colors.HEColorScheme
 import net.horizonsend.ion.common.utils.text.orEmpty
@@ -12,7 +13,8 @@ import net.kyori.adventure.text.format.TextColor
 
 abstract class ChatMessage(
 	val senderLevel: Int,
-	val channelId: String
+	val channelId: String,
+	val senderID: SLPlayerId
 ) {
 	abstract val luckPermsPrefix: Component?
 	abstract val playerDisplayName: Component
@@ -47,7 +49,7 @@ abstract class ChatMessage(
 		if (showLuckPermsPrefix) luckPermsPrefix?.let { builder.append(it, space()) }
 		builder.append(playerDisplayName)
 		builder.append(luckPermsSuffix.orEmpty())
-		builder.append(text(" » ", HEColorScheme.HE_DARK_GRAY))
+		builder.append(text(" Â» ", HEColorScheme.HE_DARK_GRAY))
 		builder.append(message.color(color))
 
 		return builder.build()

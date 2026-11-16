@@ -409,7 +409,8 @@ enum class ChatChannel(
 				luckPermsSuffix = player.common().getSuffix(),
 				message = event.message(),
 				playerInfo = text(playerInfo(player)),
-				color = messageColor
+				color = messageColor,
+				senderId = playerData.id
 			))
 		}
 	},
@@ -439,7 +440,8 @@ enum class ChatChannel(
 				luckPermsSuffix = player.common().getSuffix(),
 				message = event.message(),
 				playerInfo = text(playerInfo(player)),
-				color = messageColor
+				color = messageColor,
+				senderId = playerData.id
 			))
 		}
 	},
@@ -473,7 +475,8 @@ enum class ChatChannel(
 				luckPermsSuffix = player.common().getSuffix(),
 				message = event.message(),
 				playerInfo = text(playerInfo(player)),
-				color = messageColor
+				color = messageColor,
+				senderId = playerData.id
 			))
 		}
 	};
@@ -581,6 +584,7 @@ enum class ChatChannel(
 				val playerNation = PlayerCache.getIfOnline(player)?.nationOid ?: continue
 				if (RelationCache[playerNation, message.nationsid] < NationRelation.Level.ALLY) continue
 				if (!canUseAllyChat(player)) continue
+				if (PlayerCache[player].blockedPlayerIDs.contains(message.senderID)) continue
 
 				player.sendMessage(message.buildChatComponent(
 					useLevelsPrefix = false,
